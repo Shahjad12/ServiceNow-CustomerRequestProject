@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2025-10-01 04:55:17">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description>Custom Customer Request table with fields, business rules, client scripts, and script include for priority calculation.</description>
+<inserted/>
+<name>Customer Request Project</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>fb7ebeb1c31032106d3433fc0501311f</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2025-10-01 04:55:16</sys_created_on>
+<sys_id>ec101f79c35032106d3433fc0501313a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2025-10-01 04:55:16</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_9113c2a5c31032106d3433fc050131ef</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;CheckFormValidation&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+    //Type appropriate comment here, and begin script below
+    var namePattern = /^[A-Z][a-z]+(\s[A-Z][a-z]+)*$/; // Allows "John" or "John Doe"
+    var emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    var numberPattern = /^[0-9]{10}$/;
+
+    var fullname = g_form.getValue('u_full_name');
+    var email = g_form.getValue('u_email');
+    var number = g_form.getValue('u_phone_number');
+
+    if (!namePattern.test(fullname)) {
+        g_form.showFieldMsg('u_full_name', "Please enter a valid name like: 'Name Surname'.", "error");
+        return false;
+    }
+    if (!emailPattern.test(email)) {
+        g_form.showFieldMsg("u_email", "Please enter a valid email.", "error");
+        return false;
+    }
+    if (!numberPattern.test(number)) {
+        g_form.showFieldMsg("u_phone_number", "Please enter a 10 digit phone number.", "error");
+
+        return false;
+    } else {
+        g_form.addInfoMessage("The form has been submitted successfully");
+        return true;
+    }
+
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-09-30 04:41:52&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;9113c2a5c31032106d3433fc050131ef&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;CheckFormValidation&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_9113c2a5c31032106d3433fc050131ef&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-10-01 04:31:25&lt;/sys_updated_on&gt;&lt;table&gt;u_custom_table_mini&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1328771787</payload_hash>
+<remote_update_set display_value="Customer Request Project">ec101f79c35032106d3433fc0501313a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2025-10-01 04:55:16</sys_created_on>
+<sys_id>201053f9c35032106d3433fc05013114</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1999e0a1a3d0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2025-10-01 04:55:16</sys_updated_on>
+<table>u_custom_table_mini</table>
+<target_name>CheckFormValidation</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>9b9ac37da8103210b6c1f24d6f2fc8ad</update_guid>
+<update_guid_history>9b9ac37da8103210b6c1f24d6f2fc8ad:1328771787,972a86edff10321057e998b6ce2b643b:-1172170233,57b942e148103210271f8baa00c4384a:439032390,1a634e65b11032106a762dea40e23634:2083298969</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_c70f6d8dc35872106d3433fc05013118</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;u_custom_table_mini&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;generateRequestNo&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+    // Add your code here
+    var gr = new GlideRecord('u_custom_table_mini');
+    gr.orderByDesc('sys_created_on');
+    gr.setLimit('1');
+    gr.query();
+    var max = 0;
+    if (gr.next()) {
+        var last = gr.u_request_number;
+        // gs.log("Test for the request no:" + gr.u_request_number);
+
+        max = last.replace("CR", "");
+        max = parseInt(max);
+
+    }
+
+
+    max = max + 1;
+    current.u_request_number = 'CR' + max.toString().padStart(3, 0);
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-09-28 14:25:25&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;c70f6d8dc35872106d3433fc05013118&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_name&gt;generateRequestNo&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_c70f6d8dc35872106d3433fc05013118&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-10-01 04:29:38&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=c70f6d8dc35872106d3433fc05013118"/&gt;&lt;sys_es_latest_script action="INSERT_OR_UPDATE"&gt;&lt;id&gt;c70f6d8dc35872106d3433fc05013118&lt;/id&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-09-28 14:25:25&lt;/sys_created_on&gt;&lt;sys_id&gt;0fc5f105c39872106d3433fc050131ec&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-09-28 14:25:25&lt;/sys_updated_on&gt;&lt;table&gt;sys_script&lt;/table&gt;&lt;use_es_latest&gt;true&lt;/use_es_latest&gt;&lt;/sys_es_latest_script&gt;&lt;/record_update&gt;</payload>
+<payload_hash>1550107345</payload_hash>
+<remote_update_set display_value="Customer Request Project">ec101f79c35032106d3433fc0501313a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2025-10-01 04:55:16</sys_created_on>
+<sys_id>2c101f79c35032106d3433fc0501313b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1999e0877ee0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2025-10-01 04:55:16</sys_updated_on>
+<table>u_custom_table_mini</table>
+<target_name>generateRequestNo</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>0d3a43f1015032104ebfab0343594ee3</update_guid>
+<update_guid_history>0d3a43f1015032104ebfab0343594ee3:1550107345,2c4f981d6dd4b210ce08c030bcae406c:-808944381,4eee9cd574d4b210522b56fd17453968:-2017242438,525b94d5e0d4b2104bf9e8e1a4e49cd1:798877587,5d4ad09525d4b210f0d291ff1f88a2ce:-1876518095,5a191415ecd4b210b599378f85e46863:1882464209,1ed8f1c9b89872102f0168c61841dc70:326640422,a496f9c5c39872101406d5980711aed3:-1156427013,4bc575c51f98721094629acfd77b7434:-472650041</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_8aeac501c3d472106d3433fc05013119</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;u_urgency&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Calculatepriority1&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    //    if (isLoading || newValue === '') {
+    //       return;
+    //    }
+    //    alert("Impact: " + g_form.getValue('u_impact') + " | Urgency: " + g_form.getValue('u_urgency'));
+    var impact = g_form.getValue('u_impact');
+
+    var ga = new GlideAjax('CalculatePriority');
+    ga.addParam('sysparm_name', 'getPriority');
+    ga.addParam('sysparm_impact', newValue);
+    ga.addParam('sysparm_urgency', impact);
+    ga.getXMLAnswer(function(response) {
+        g_form.setValue('u_priority', response);
+    });
+
+
+    //Type appropriate comment here, and begin script below
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-09-28 11:36:19&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;8aeac501c3d472106d3433fc05013119&lt;/sys_id&gt;&lt;sys_mod_count&gt;11&lt;/sys_mod_count&gt;&lt;sys_name&gt;Calculatepriority1&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_8aeac501c3d472106d3433fc05013119&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-10-01 04:32:55&lt;/sys_updated_on&gt;&lt;table&gt;u_custom_table_mini&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>858319017</payload_hash>
+<remote_update_set display_value="Customer Request Project">ec101f79c35032106d3433fc0501313a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2025-10-01 04:55:16</sys_created_on>
+<sys_id>a0101f79c35032106d3433fc0501313c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1999e0b75be0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2025-10-01 04:55:16</sys_updated_on>
+<table>u_custom_table_mini</table>
+<target_name>Calculatepriority1</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>0dfac335fc50321075a593f00ca7fadf</update_guid>
+<update_guid_history>0dfac335fc50321075a593f00ca7fadf:858319017,7cbe658dc05872102f022629b8b17423:170653344,9eed6d8176187210897c27eb1d1d9e6d:-1297827304,d6adad0d25587210445db37bc0e71a23:-1609156628,0d9da5855ed47210c97dd32fb6cd02c9:-839587565,05d85181b6187210132e7ea0cc4cfae0:-1609156628,a308994109187210583a0b74cebbf3e6:-963498990,d3361d8d18d472100fe71db5c7ce4539:-142826833,04c5d98dd7d47210c3755f789774efd3:1952727510,1385594d4fd47210cf7d50423f9b1bbb:-1352476880,5f4f8d45b2d47210e1c4ae13a306a178:519999067,f91f0145d3d4721067234a911aa339ff:915187426</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_db_object_cf7df88dc35472106d3433fc0501310f</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object"><sys_db_object action="INSERT_OR_UPDATE"><access>public</access><actions_access>false</actions_access><alter_access>false</alter_access><caller_access/><client_scripts_access>false</client_scripts_access><configuration_access>false</configuration_access><create_access>false</create_access><create_access_controls>true</create_access_controls><delete_access>false</delete_access><filter_extension/><is_df_table>false</is_df_table><is_extendable>false</is_extendable><label>custom table mini</label><live_feed_enabled>false</live_feed_enabled><name>u_custom_table_mini</name><number_ref/><provider_class/><read_access>true</read_access><scriptable_table>false</scriptable_table><super_class/><sys_class_name>sys_db_object</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-09-28 10:20:29</sys_created_on><sys_id>cf7df88dc35472106d3433fc0501310f</sys_id><sys_mod_count>1</sys_mod_count><sys_name>custom table mini</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_db_object_cf7df88dc35472106d3433fc0501310f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-10-01 03:47:06</sys_updated_on><update_access>false</update_access><user_role display_value="u_custom_table_mini_user" name="u_custom_table_mini_user">5fbdf88dc35472106d3433fc05013154</user_role><ws_access>true</ws_access></sys_db_object></record_update>]]></payload>
+<payload_hash>-1524961221</payload_hash>
+<remote_update_set display_value="Customer Request Project">ec101f79c35032106d3433fc0501313a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2025-10-01 04:55:16</sys_created_on>
+<sys_id>e0101f79c35032106d3433fc0501313b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1999de183910000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2025-10-01 04:55:16</sys_updated_on>
+<table>u_custom_table_mini</table>
+<target_name>custom table mini</target_name>
+<type>Table</type>
+<update_domain>global</update_domain>
+<update_guid>f570cb75c7103210b1a952cd798bdec9</update_guid>
+<update_guid_history>f570cb75c7103210b1a952cd798bdec9:-1524961221,a3bd30cd7f547210537e58f57c5b2ab9:-1524961221</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_policy_ba4b0261c35032106d3433fc05013196</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_ui_policy"&gt;&lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;conditions/&gt;&lt;description/&gt;&lt;global&gt;true&lt;/global&gt;&lt;inherit&gt;false&lt;/inherit&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;model_id/&gt;&lt;model_table/&gt;&lt;on_load&gt;true&lt;/on_load&gt;&lt;order&gt;100&lt;/order&gt;&lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;&lt;run_scripts&gt;false&lt;/run_scripts&gt;&lt;script_false&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_false&gt;&lt;script_true&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_true&gt;&lt;set_values/&gt;&lt;short_description&gt;It hides the request number field weather takes the value from the business rule.&lt;/short_description&gt;&lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-09-30 05:17:16&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;ba4b0261c35032106d3433fc05013196&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;It hides the request number field weather takes the value from the business rule.&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_policy_ba4b0261c35032106d3433fc05013196&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-10-01 04:36:13&lt;/sys_updated_on&gt;&lt;table&gt;u_custom_table_mini&lt;/table&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_ui_policy&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-229401750</payload_hash>
+<remote_update_set display_value="Customer Request Project">ec101f79c35032106d3433fc0501313a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2025-10-01 04:55:16</sys_created_on>
+<sys_id>e01053f9c35032106d3433fc05013114</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1999e0e7be00000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2025-10-01 04:55:16</sys_updated_on>
+<table>u_custom_table_mini</table>
+<target_name>It hides the request number field weather takes the value from the business rule.</target_name>
+<type>UI Policy</type>
+<update_domain>global</update_domain>
+<update_guid>95bb83759950321033b6af8397d6e5e4</update_guid>
+<update_guid_history>95bb83759950321033b6af8397d6e5e4:-229401750,c58b4261f25032109155ddbb43aec05b:1030645804</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_842e654dc35872106d3433fc05013171</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;u_impact&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Calculatepriority&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    //    if (isLoading || newValue === '') {
+    //       return;
+    //    }
+    //    alert("Impact: " + g_form.getValue('u_impact') + " | Urgency: " + g_form.getValue('u_urgency'));
+    var urgency = g_form.getValue('u_urgency');
+
+    var ga = new GlideAjax('CalculatePriority');
+    ga.addParam('sysparm_name', 'getPriority');
+    ga.addParam('sysparm_impact', newValue);
+    ga.addParam('sysparm_urgency', urgency);
+    ga.getXMLAnswer(function(response) {
+        g_form.setValue('u_priority', response);
+    });
+
+
+    //Type appropriate comment here, and begin script below
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-09-28 13:53:47&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;842e654dc35872106d3433fc05013171&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Calculatepriority&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_842e654dc35872106d3433fc05013171&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-10-01 04:32:24&lt;/sys_updated_on&gt;&lt;table&gt;u_custom_table_mini&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1340653739</payload_hash>
+<remote_update_set display_value="Customer Request Project">ec101f79c35032106d3433fc0501313a</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2025-10-01 04:55:16</sys_created_on>
+<sys_id>ec101f79c35032106d3433fc0501313b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1999e0afdba0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2025-10-01 04:55:16</sys_updated_on>
+<table>u_custom_table_mini</table>
+<target_name>Calculatepriority</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>65da4bf132503210da4490d4a6a9f79b</update_guid>
+<update_guid_history>65da4bf132503210da4490d4a6a9f79b:-1340653739,7abe658da6587210d3df13a667c11c81:756588988,238e694d03587210d6d9600c30eb3e5d:-804284756</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
